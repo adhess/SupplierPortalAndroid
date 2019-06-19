@@ -23,4 +23,8 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_login">Portail Fournisseur</string>
+    <string name="title_activity_details_invoice">Detail de la facture</string>
+    <string name="title_activity_invoice">InvoiceActivity</string>
+    <string name="title_activity_invoice_r">Liste des Factures</string>
+    <string name="title_activity_order">OrderActivity</string>
 </resources>

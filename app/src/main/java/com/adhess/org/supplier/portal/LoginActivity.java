@@ -2,8 +2,6 @@ package com.adhess.org.supplier.portal;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -21,8 +19,14 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity  {
     String BASE_URL = "http://10.0.2.2:8765";
+
+    Retrofit retrofit = new Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +34,13 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        onLogin();
+    }
 
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+
+
+    public void onLogin() {
 
 
         final EditText username = findViewById(R.id.username);
@@ -52,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                 login.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
-                        Toast.makeText(getApplicationContext(), "Success: "+ call.isExecuted()
+                        Toast.makeText(getApplicationContext(), "Success: "+ response.isSuccessful()
                                 , Toast.LENGTH_LONG).show();
 
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -70,5 +74,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
 
 }
