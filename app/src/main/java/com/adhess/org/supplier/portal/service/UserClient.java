@@ -4,6 +4,7 @@ import com.adhess.org.supplier.portal.model.Content;
 import com.adhess.org.supplier.portal.model.InfoChart;
 import com.adhess.org.supplier.portal.model.Login;
 import com.adhess.org.supplier.portal.model.P2p_invoice;
+import com.adhess.org.supplier.portal.model.P2p_order;
 import com.adhess.org.supplier.portal.model.UserInfoModel;
 
 import java.util.List;
@@ -27,4 +28,7 @@ public interface UserClient {
 
     @GET("/API/p2p/auth/invoice/{page}/100")
     Call<Content<P2p_invoice>> getInvoices(@Header("authorization") String token, @Path("page") int page);
+
+    @GET("/API/p2p/auth/order/{page}/100")
+    Call<Content<P2p_order>> getOrders(@Header("authorization") String token, @Path("page") int page);
 }

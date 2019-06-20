@@ -29,8 +29,6 @@ public class InvoiceAdapter extends RecyclerView.Adapter <InvoiceAdapter.ViewHol
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.content_invoice,parent,false);
         return new ViewHolder(view, mOnInvoiceRowListner);
-
-
     }
 
     @Override

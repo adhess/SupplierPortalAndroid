@@ -13,9 +13,13 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".DetailsOrderActivity"
+            android:label="@string/title_activity_details_order"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".OrderActivity"
             android:label="@string/title_activity_order"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".InvoiceActivity"
             android:label="@string/title_activity_invoice_r"

@@ -126,7 +126,9 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_orders) {
-
+            Intent intent = new Intent(getApplicationContext(), OrderActivity.class);
+            intent.putExtra("token", MainActivity.token);
+            startActivity(intent);
         } else if (id == R.id.nav_contacts) {
 
         }
