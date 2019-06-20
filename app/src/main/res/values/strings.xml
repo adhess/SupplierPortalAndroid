@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Portail Fournisseur</string>
+    <string name="app_name">Accueil</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -23,9 +23,10 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_login">Portail Fournisseur</string>
-    <string name="title_activity_details_invoice">Detail de la facture</string>
+    <string name="title_activity_details_invoice">Detail de la Facture</string>
     <string name="title_activity_invoice">InvoiceActivity</string>
     <string name="title_activity_invoice_r">Liste des Factures</string>
     <string name="title_activity_order">Liste des Commandes</string>
-    <string name="title_activity_details_order">DetailsOrderActivity</string>
+    <string name="title_activity_details_order">Detail de la Commonde</string>
+    <string name="title_activity_contact">Liste des Utilisateurs</string>
 </resources>

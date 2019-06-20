@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.adhess.org.supplier.portal.model.InfoChart;
-import com.adhess.org.supplier.portal.model.UserInfoModel;
+import com.adhess.org.supplier.portal.model.AppUser;
 import com.adhess.org.supplier.portal.model.invoice;
 import com.adhess.org.supplier.portal.model.order;
 import com.adhess.org.supplier.portal.service.UserClient;
@@ -38,7 +38,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static UserInfoModel userInfo;
+    private static AppUser userInfo;
 
     String BASE_URL = "http://10.0.2.2:8765";
 
@@ -130,7 +130,9 @@ public class MainActivity extends AppCompatActivity
             intent.putExtra("token", MainActivity.token);
             startActivity(intent);
         } else if (id == R.id.nav_contacts) {
-
+            Intent intent = new Intent(getApplicationContext(), ContactActivity.class);
+            intent.putExtra("token", MainActivity.token);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -139,11 +141,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void initializer() {
-        Call<UserInfoModel> userInfoCall = userClient.getUserInfo(token);
+        Call<AppUser> userInfoCall = userClient.getUserInfo(token);
 
-        userInfoCall.enqueue(new Callback<UserInfoModel>() {
+        userInfoCall.enqueue(new Callback<AppUser>() {
             @Override
-            public void onResponse(Call<UserInfoModel> call, Response<UserInfoModel> response) {
+            public void onResponse(Call<AppUser> call, Response<AppUser> response) {
                 MainActivity.userInfo = response.body();
 
                 if (response.body() != null) {
@@ -153,7 +155,7 @@ public class MainActivity extends AppCompatActivity
             }
 
             @Override
-            public void onFailure(Call<UserInfoModel> call, Throwable t) {
+            public void onFailure(Call<AppUser> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "error Token", Toast.LENGTH_LONG).show();
             }
         });

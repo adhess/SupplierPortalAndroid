@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.adhess.org.supplier.portal.model.P2p_invoice;
 import com.adhess.org.supplier.portal.model.P2p_order;
 
+import java.text.ParseException;
+
 public class DetailsOrderActivity extends AppCompatActivity {
 
     @Override
@@ -49,7 +51,14 @@ public class DetailsOrderActivity extends AppCompatActivity {
 
     private String getDate(String date) {
         if (date == null) return "";
-        return date.substring(0,10);
+//        SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");
+//        SimpleDateFormat formatter5=new SimpleDateFormat("E MMM dd HH:mm:ss zzz yyyy");
+//
+//        Date date5=formatter5.parse(date);
+//
+//        return formatter1.format(date5);
+
+        return date.substring(8,10) + "/" + date.substring(4,7) + "/" + date.substring(date.length()-4);
     }
 
 }

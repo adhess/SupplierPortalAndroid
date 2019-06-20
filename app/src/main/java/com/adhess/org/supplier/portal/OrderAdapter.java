@@ -14,6 +14,9 @@ import com.adhess.org.supplier.portal.model.Login;
 import com.adhess.org.supplier.portal.model.P2p_order;
 import com.adhess.org.supplier.portal.model.intermediary.EPCTET;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -42,7 +45,11 @@ public class OrderAdapter extends RecyclerView.Adapter <OrderAdapter.ViewHolder>
         EPCTET order = list_mod.get(position).getRoot();
         Log.d("order",order.toString());
         holder.tv_order_num.setText(" Numéro: " + order.getEpcnum());
-        holder.tv_order_recdat.setText("Date de création: " + getDate(order.getCredat()));
+        try {
+            holder.tv_order_recdat.setText("Date de création: " + getDate(order.getCredat().trim()));
+        } catch (ParseException e) {
+           Log.d("Parse exception: ", e.toString());
+        }
         int color = 0;
         switch (order.getStatus()) {
             case "0":
@@ -55,9 +62,16 @@ public class OrderAdapter extends RecyclerView.Adapter <OrderAdapter.ViewHolder>
         holder.order_color.setColorFilter(color);
     }
 
-    private String getDate(String date) {
+    private String getDate(String date) throws ParseException {
         if (date == null) return "";
-        return date.substring(0,10);
+//        SimpleDateFormat formatter1=new SimpleDateFormat("dd/MM/yyyy");
+//        SimpleDateFormat formatter5=new SimpleDateFormat("E MMM dd HH:mm:ss zzz yyyy");
+//
+//        Date date5=formatter5.parse(date);
+//
+//        return formatter1.format(date5);
+
+        return date.substring(8,10) + "/" + date.substring(4,7) + "/" + date.substring(date.length()-4);
     }
 
     @Override

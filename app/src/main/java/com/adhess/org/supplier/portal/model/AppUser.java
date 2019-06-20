@@ -1,8 +1,9 @@
 package com.adhess.org.supplier.portal.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class UserInfoModel {
+public class AppUser implements Serializable {
 
     private String username;
     private String name;
@@ -14,10 +15,10 @@ public class UserInfoModel {
 
     private String role;
 
-    private List<String> authorities;
+    private List<Authority> authorities;
 
 
-    public UserInfoModel(String username, String name, String telephone, String fax, String email, Address address, String role, List<String> authorities) {
+    public AppUser(String username, String name, String telephone, String fax, String email, Address address, String role, List<Authority> authorities) {
         this.username = username;
         this.name = name;
         this.telephone = telephone;
@@ -84,11 +85,11 @@ public class UserInfoModel {
         this.role = role;
     }
 
-    public List<String> getAuthorities() {
+    public List<Authority> getAuthorities() {
         return authorities;
     }
 
-    public void setAuthorities(List<String> authorities) {
+    public void setAuthorities(List<Authority> authorities) {
         this.authorities = authorities;
     }
 

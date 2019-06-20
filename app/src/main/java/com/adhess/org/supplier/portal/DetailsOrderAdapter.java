@@ -25,7 +25,7 @@ public class DetailsOrderAdapter extends RecyclerView.Adapter <DetailsOrderAdapt
 
     @Override
     public DetailsOrderAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.content_invoice_details, parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.content_details_order_adapter, parent,false);
         return new DetailsOrderAdapter.ViewHolder(view);
     }
 
@@ -33,7 +33,7 @@ public class DetailsOrderAdapter extends RecyclerView.Adapter <DetailsOrderAdapt
     @Override
     public void onBindViewHolder(DetailsOrderAdapter.ViewHolder holder, int position) {
         EPCDET order_det = list_mod.get(position);
-//        holder.tv_desgnt_det_ord.setText("" + order_det.getArtlib());
+        holder.tv_desgnt_det_ord.setText("" + order_det.getArtlib());
         holder.tv_qt_det_ord.setText("" + order_det.getCmdqte());
         holder.tv_mnt_det_ord.setText("" + order_det.getDevbrumnt());
         holder.tv_tva_det_ord.setText("" + order_det.getDevtvamnt());
