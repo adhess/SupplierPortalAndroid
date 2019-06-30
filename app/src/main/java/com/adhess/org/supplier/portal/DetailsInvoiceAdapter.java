@@ -17,7 +17,7 @@ public class DetailsInvoiceAdapter extends RecyclerView.Adapter <DetailsInvoiceA
     List<EPFDET> list_mod;
 
     public DetailsInvoiceAdapter(Context context, List<EPFDET> list_mod) {
-        Log.d("epfdet: ", list_mod.get(0).toString());
+
         this.context = context;
         this.list_mod = list_mod;
     }
